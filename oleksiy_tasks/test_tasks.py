@@ -10,10 +10,15 @@ class TestTasks(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             tasks.task_88v(0)
-            tasks.task_88v(-379)
+        with self.assertRaises(ValueError):
+            tasks.task_88v(-371239)
+        with self.assertRaises(ValueError):
             tasks.task_88v("379")
+        with self.assertRaises(ValueError):
             tasks.task_88v(None)
+        with self.assertRaises(ValueError):
             tasks.task_88v([379])
+        with self.assertRaises(ValueError):
             tasks.task_88v([379,379])
 
 
@@ -23,10 +28,15 @@ class TestTasks(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             tasks.task_88g(0)
-            tasks.task_88g(-379)
+        with self.assertRaises(ValueError):
+            tasks.task_88g(-371239)
+        with self.assertRaises(ValueError):
             tasks.task_88g("379")
+        with self.assertRaises(ValueError):
             tasks.task_88g(None)
+        with self.assertRaises(ValueError):
             tasks.task_88g([379])
+        with self.assertRaises(ValueError):
             tasks.task_88g([379,379])
 
 
@@ -35,10 +45,15 @@ class TestTasks(unittest.TestCase):
 
         with self.assertRaises(ValueError):
             tasks.task_332(0)
-            tasks.task_332(-379)
+        with self.assertRaises(ValueError):
+            tasks.task_332(-371239)
+        with self.assertRaises(ValueError):
             tasks.task_332("379")
+        with self.assertRaises(ValueError):
             tasks.task_332(None)
+        with self.assertRaises(ValueError):
             tasks.task_332([379])
+        with self.assertRaises(ValueError):
             tasks.task_332([379,379])
 
 

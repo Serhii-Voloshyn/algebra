@@ -10,10 +10,15 @@ class TestTask88a(unittest.TestCase):
 
         with self.assertRaises(AssertionError):
             task_88a.is_3_in_square_of_number(0)
-            task_88a.is_3_in_square_of_number(-379)
+        with self.assertRaises(AssertionError):
+            task_88a.is_3_in_square_of_number(-371239)
+        with self.assertRaises(AssertionError):
             task_88a.is_3_in_square_of_number("379")
+        with self.assertRaises(AssertionError):
             task_88a.is_3_in_square_of_number(None)
+        with self.assertRaises(AssertionError):
             task_88a.is_3_in_square_of_number([379])
+        with self.assertRaises(AssertionError):
             task_88a.is_3_in_square_of_number([379,379])
 
 

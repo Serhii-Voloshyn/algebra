@@ -1,3 +1,7 @@
+from validators import natural_int_validation
+
+
+@natural_int_validation
 def task_88v(_number: int)\
         -> int:
     """
@@ -7,12 +11,11 @@ def task_88v(_number: int)\
     :raises ValueError: if number is negative
     :raises ValueError: if parameter's datatype doesn't match
     """
-    if _number < 0:
-        raise ValueError("Can't convert negative number")
     _number = str(_number)
     return int(_number) if len(_number) == 1 else int(_number[-1] + _number[1:-1] + _number[0])
 
 
+@natural_int_validation
 def task_88g(_number: int)\
         -> int:
     """
@@ -22,13 +25,11 @@ def task_88g(_number: int)\
     :raises ValueError: if number is negative
     :raises ValueError: if parameter's datatype doesn't match
     """
-    if _number < 0:
-        raise ValueError("Can't convert negative number")
-
     _number = str(_number)
     return int("1" + _number + "1")
 
 
+@natural_int_validation
 def task_332(_number: int)\
         -> tuple:
     """
@@ -39,9 +40,6 @@ def task_332(_number: int)\
     :raises ValueError: if number is negative
     :raises ValueError: if parameter's datatype doesn't match
     """
-    if _number < 0:
-        raise ValueError("Can't convert negative number")
-
     _sqr = int(_number ** 0.5) + 1
 
     for x in range(_sqr):

@@ -9,10 +9,15 @@ class TestTask88b(unittest.TestCase):
 
         with self.assertRaises(AssertionError):
             task_88b.reverse_number(0)
-            task_88b.reverse_number(-379)
+        with self.assertRaises(AssertionError):
+            task_88b.reverse_number(-371239)
+        with self.assertRaises(AssertionError):
             task_88b.reverse_number("379")
+        with self.assertRaises(AssertionError):
             task_88b.reverse_number(None)
+        with self.assertRaises(AssertionError):
             task_88b.reverse_number([379])
+        with self.assertRaises(AssertionError):
             task_88b.reverse_number([379,379])
 
 
