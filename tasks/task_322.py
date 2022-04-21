@@ -30,7 +30,7 @@ def get_divisors_list(number: int) -> list:
     assert isinstance(number, int), "Number should be integer"
     assert number > 0, "Number should be greater than 0"
 
-    return [i for i in range(1, int(number/2) + 1) if number % i == 0]
+    return [i for i in range(1, int(number/2) + 1) if number % i == 0] + [number]
 
 
 def task_322() -> None:
