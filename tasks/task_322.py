@@ -1,50 +1,40 @@
+"""This module contains realisation of task 322."""
 
-def get_number_with_largest_sum_of_divisors(a: int, b: int) -> int:
-    """Returns number with the largest sum of divisors within range (a, b)
+from .utils import is_natural_number
 
-    Keyword arguments:
-    a -- integers, start point of the loop
-    b -- integers, end point of the loop
-    """
-    assert isinstance(a, int) and isinstance(b, int), "Boundaries (a and b) should be integers"
-    assert b >= a, "Second (b) argument should be bigger than first (a)"
+
+def get_number_with_largest_sum_of_divisors(start: int, end: int) -> int:
+    """Returns number with the largest sum of divisors within range (start, end)"""
+    assert is_natural_number(start), "start should be natural numbers"
+    assert is_natural_number(end), "end should be natural numbers"
+    assert end >= start, "End point should be greater than start"
 
     # List of all sums of divisors
-    list_of_sums = [sum(get_divisors_list(number)) for number in range(a, b)]
+    sums = [sum(get_divisors_list(number)) for number in range(start, end)]
     # Get the largest sum in list
-    max_sum = max(list_of_sums)
+    max_sum = max(sums)
 
     # Get number with the largest sum of divisors
     # Works, while a = 1, b => a
-    number_with_max_sum = list_of_sums.index(max_sum) + 1
+    number_with_max_sum = sums.index(max_sum) + 1
 
     return number_with_max_sum
 
 
 def get_divisors_list(number: int) -> list:
-    """Returns list of number divisors
+    """Returns list of number divisors"""
+    assert is_natural_number(number), "The number should be natural"
 
-    Keyword arguments:
-    number -- integer, given number
+    return [i for i in range(1, int(number/2) + 1) if number % i == 0] \
+                                                            + [number]
+
+
+def task_322() -> int:
+    """Implementation of the task #322.
+    Returns number with the largest sum of divisors from 1 to 10000
     """
-    assert isinstance(number, int), "Number should be integer"
-    assert number > 0, "Number should be greater than 0"
-
-    return [i for i in range(1, int(number/2) + 1) if number % i == 0] + [number]
-
-
-def task_322() -> None:
-    """Implementation of the task #322"""
     # Set boundaries
-    a = 1
-    b = 10000
+    start = 1
+    end = 10000
 
-    # Get number with the largest sum of divisors
-    # and its divisors list
-    number = get_number_with_largest_sum_of_divisors(a, b)
-    div_list = get_divisors_list(number)
-
-    # Print solution
-    print(f"Number {number} has largest sum of dividers")
-    print(f"Sum: {sum(div_list)}")
-    print(f"Dividers: {div_list}")
+    return get_number_with_largest_sum_of_divisors(start, end)
